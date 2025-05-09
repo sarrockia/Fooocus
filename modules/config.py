@@ -304,31 +304,16 @@ default_loras_max_weight = get_config_item_or_set_default(
 default_loras = get_config_item_or_set_default(
     key='default_loras',
     default_value=[
-        [
-            True,
-            "None",
-            1.0
-        ],
-        [
-            True,
-            "None",
-            1.0
-        ],
-        [
-            True,
-            "None",
-            1.0
-        ],
-        [
-            True,
-            "None",
-            1.0
-        ],
-        [
-            True,
-            "None",
-            1.0
-        ]
+        [True, "None", 1.0],
+        [True, "None", 1.0],
+        [True, "None", 1.0],
+        [True, "None", 1.0],
+        [True, "None", 1.0],
+        [True, "None", 1.0],
+        [True, "None", 1.0],
+        [True, "None", 1.0],
+        [True, "None", 1.0],
+        [True, "None", 1.0]
     ],
     validator=lambda x: isinstance(x, list) and all(
         len(y) == 3 and isinstance(y[0], bool) and isinstance(y[1], str) and isinstance(y[2], numbers.Number)
@@ -339,7 +324,7 @@ default_loras = get_config_item_or_set_default(
 default_loras = [(y[0], y[1], y[2]) if len(y) == 3 else (True, y[0], y[1]) for y in default_loras]
 default_max_lora_number = get_config_item_or_set_default(
     key='default_max_lora_number',
-    default_value=len(default_loras) if isinstance(default_loras, list) and len(default_loras) > 0 else 5,
+    default_value=10 if isinstance(default_loras, list) and len(default_loras) > 0 else 5,
     validator=lambda x: isinstance(x, int) and x >= 1,
     expected_type=int
 )
